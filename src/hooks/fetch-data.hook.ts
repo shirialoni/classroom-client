@@ -13,7 +13,6 @@ export const useFetchData = <T>(fetchOption: IFetchOptions<T>) => {
     retry: 1,
     retryDelay: 1000,
     throwOnError: true,
-    refetchOnMount: false,
     refetchOnWindowFocus: false,
     enabled: !fetchOption.isLoaded(initData),
   });
