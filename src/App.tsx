@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import ClassroomRoutes from "./router/classroom.router.tsx";
 import ClassroomNav from "./components/ClassroomNav/Navbar.tsx";
 
