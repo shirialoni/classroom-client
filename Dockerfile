@@ -5,6 +5,7 @@ WORKDIR /app
 COPY package*.json ./
 
 ARG VITE_API_SERVER
+ARG VITE_BASE_URL
 
 RUN chown -R node /app
 
