@@ -6,10 +6,6 @@ COPY package*.json ./
 
 ARG VITE_API_SERVER
 
-RUN chown -R node /app
-
-USER node
-
 RUN npm i
 
 COPY . .
