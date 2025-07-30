@@ -8,7 +8,7 @@ ARG VITE_API_SERVER
 
 USER node
 
-RUN npm install
+RUN npm ci
 
 COPY . .
 
