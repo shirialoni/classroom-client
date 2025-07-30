@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-ENV VITE_API_SERVER=http://localhost:3000
+ARG VITE_API_SERVER
 
 RUN npm install
 

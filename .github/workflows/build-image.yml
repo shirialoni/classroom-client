@@ -3,7 +3,7 @@ name: ci
 on:
   push:
     branches:
-      - 'main'
+      - "main"
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
@@ -24,3 +24,5 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/shirialoni/classroom-client:latest
+          build-args: |
+            VITE_API_SERVER=${{ vars.VITE_API_SERVER }}
