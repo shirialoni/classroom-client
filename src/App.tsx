@@ -5,7 +5,7 @@ import ClassroomNav from "./components/ClassroomNav/Navbar.tsx";
 const App = () => {
   return (
     <>
-      <Router basename="/shiri">
+      <Router>
         <ClassroomNav />
         <ClassroomRoutes />
       </Router>
