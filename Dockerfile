@@ -16,12 +16,12 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:alpine
+FROM nginx:stable-alpine
 
 COPY --from=builder /app/dist /usr/share/nginx/html/shiri
 
-COPY /nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY /nginx/nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 5173
+EXPOSE 3000
 
 CMD ["nginx", "-g", "daemon off;"]
