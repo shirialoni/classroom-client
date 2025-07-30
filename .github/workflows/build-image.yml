@@ -26,3 +26,4 @@ jobs:
           tags: ghcr.io/shirialoni/classroom-client:latest
           build-args: |
             VITE_API_SERVER=${{ vars.VITE_API_SERVER }}
+            VITE_BASE_URL=${{ vars.VITE_BASE_URL }}
