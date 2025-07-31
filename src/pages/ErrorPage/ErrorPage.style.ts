@@ -3,6 +3,7 @@ import { usePaletteContext } from "../../contexts/palette.context.tsx";
 
 export const useStyles = () => {
   const { palette } = usePaletteContext();
+  
   return createStyles({
     main: {
       m: "0 auto",

@@ -1,12 +1,12 @@
 import {
-  IStudentInfo,
-  ICreateStudentDto,
-} from "../../interfaces/student.interface.ts";
-
-import {
   IClassesInfo,
   ICreateClassDto,
 } from "../../interfaces/class.interface.ts";
+
+import {
+  IStudentInfo,
+  ICreateStudentDto,
+} from "../../interfaces/student.interface.ts";
 
 import {
   ADD_STUDENT_HEADER,

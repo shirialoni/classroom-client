@@ -4,9 +4,9 @@ import { PALETTE_TYPES, PALETTES } from "../constants/palette.const";
 import { LOCAL_STORAGE_KEYS } from "../constants/local-storage.const";
 
 interface IPaletteContext {
-  paletteType: PALETTE_TYPES;
   palette: string;
   togglePalette: () => void;
+  paletteType: PALETTE_TYPES;
 }
 
 const PaletteContext = createContext<IPaletteContext>({
