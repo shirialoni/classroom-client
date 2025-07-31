@@ -21,9 +21,9 @@ interface ICreateFormProps<T extends Record<keyof T, string>> {
 }
 
 const CreateForm = <T extends FieldValues>({
-  fieldsList,
   title,
   onSubmit,
+  fieldsList,
 }: ICreateFormProps<T>) => {
   const {
     reset,
@@ -49,17 +49,7 @@ const CreateForm = <T extends FieldValues>({
       reset();
       setSuccess(true);
     } catch (error) {
-      if (error instanceof AxiosError) {
-        if (error.code === "ERR_NETWORK") {
-          console.log(error);
-          setError("root", {
-            type: "manual",
-            message: "an error occurred, try again later",
-          });
-
-          return;
-        }
-
+      if (error instanceof AxiosError && error.code !== "ERR_NETWORK") {
         setError("root", {
           type: "manual",
           message: error?.response?.data?.message,
@@ -96,10 +86,10 @@ const CreateForm = <T extends FieldValues>({
                   errors[key] ? errors[key]?.message?.toString() : " "
                 }
                 key={key}
-                label={`${label} ${required ? "*" : ""}`}
-                variant="outlined"
                 fullWidth
                 margin="dense"
+                variant="outlined"
+                label={`${label} ${required ? "*" : ""}`}
                 {...rest}
               />
             );

@@ -1,5 +1,5 @@
 import { SnackbarProviderProps } from "notistack";
-import ErrorAlert from "../components/CostumeAlert/Error/ErrorAlert";
+import ErrorAlert from "../components/CustomAlert/Error/ErrorAlert";
 
 export const NOTISTACK_CONFIG: SnackbarProviderProps = {
   maxSnack: 3,

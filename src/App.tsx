@@ -4,12 +4,10 @@ import ClassroomNav from "./components/ClassroomNav/Navbar.tsx";
 
 const App = () => {
   return (
-    <>
-      <Router>
-        <ClassroomNav />
-        <ClassroomRoutes />
-      </Router>
-    </>
+    <Router>
+      <ClassroomNav />
+      <ClassroomRoutes />
+    </Router>
   );
 };
 

@@ -12,7 +12,7 @@ const ClassroomNav = () => {
   const { togglePalette } = usePaletteContext();
   const [openDrawer, setOpenDrawer] = useState(false);
 
-  const toggleDrawer = (newOpen: boolean) => () => {
+  const setIsDrawerOpen = (newOpen: boolean) => () => {
     setOpenDrawer(newOpen);
   };
 
@@ -26,7 +26,7 @@ const ClassroomNav = () => {
               color="inherit"
               aria-label="menu"
               sx={styles.menuIcon}
-              onClick={toggleDrawer(true)}
+              onClick={setIsDrawerOpen(true)}
             >
               <MenuIcon sx={styles.textSize} />
             </IconButton>
@@ -43,7 +43,7 @@ const ClassroomNav = () => {
           </Toolbar>
         </AppBar>
       </Box>
-      <AppMenu openDrawer={openDrawer} toggleDrawer={toggleDrawer} />
+      <AppMenu openDrawer={openDrawer} toggleDrawer={setIsDrawerOpen} />
     </>
   );
 };

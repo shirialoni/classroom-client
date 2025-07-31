@@ -21,7 +21,7 @@ const ClassesPage = () => {
   const [selectedClassroom, setSelectedClassroom] =
     useState<IClassesInfo | null>(null);
 
-  const studentsDialogData = (classroom: IClassesInfo) => {
+  const studentsDialogAdapter = (classroom: IClassesInfo) => {
     const currentClass = classes.find(
       (curClass) => curClass.id === classroom.id
     );
@@ -37,6 +37,7 @@ const ClassesPage = () => {
       };
     });
   };
+
   return (
     <>
       {!isLoading ? (
@@ -56,18 +57,18 @@ const ClassesPage = () => {
       )}
       {selectedClassroom && (
         <ClassroomDialog
-          button={<DeleteIcon style={styles.button} />}
           avatar={<PersonIcon />}
           header={DIALOG_HEADER.CLASS_PAGE}
           onClose={() => setSelectedClassroom(null)}
-          onButtonClick={async (studentId: number | string) => {
+          button={<DeleteIcon style={styles.button} />}
+          onButtonClick={async (studentId) => {
             await handleUnassignStudent(
               "" + studentId,
               selectedClassroom,
               dispatch
             );
           }}
-          dialogData={studentsDialogData(selectedClassroom)}
+          dialogData={studentsDialogAdapter(selectedClassroom)}
         />
       )}
     </>

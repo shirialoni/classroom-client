@@ -1,7 +1,7 @@
 import { FieldValues, Path } from "react-hook-form";
 import { IField, valueType } from "../types/field.type";
 
-export const formatData = <T extends FieldValues>(
+export const formatFormData = <T extends FieldValues>(
   data: T,
   fieldsList: IField<T>[]
 ) => {

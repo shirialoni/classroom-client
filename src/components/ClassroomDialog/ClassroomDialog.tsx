@@ -47,7 +47,7 @@ const ClassroomDialog: FC<IAssignDialogProps> = ({
                   slotProps={{ primary: { style: styles.dataName } }}
                   primary={data.name}
                 />
-                <IconButton onClick={() => onButtonClick(data.id)} style={{}}>
+                <IconButton onClick={() => onButtonClick(data.id)}>
                   {button}
                 </IconButton>
               </ListItem>
@@ -56,11 +56,7 @@ const ClassroomDialog: FC<IAssignDialogProps> = ({
         </>
       )}
       {dialogData.length === 0 && (
-        <>
-          <DialogTitle sx={styles.dialogTitle}>
-            {"No"} {header}
-          </DialogTitle>
-        </>
+        <DialogTitle sx={styles.dialogTitle}>{`No ${header}`}</DialogTitle>
       )}
     </Dialog>
   );

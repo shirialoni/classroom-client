@@ -20,10 +20,10 @@ import { addClass } from "../../redux/slices/class.slice.ts";
 import { CLASS_FIELDS } from "../../constants/class.const.ts";
 import classesService from "../../services/classes.service.ts";
 import { addStudent } from "../../redux/slices/student.slice.ts";
-import { formatData } from "../../utilities/Format-data.util.ts";
 import studentsService from "../../services/students.service.ts";
 import { STUDENT_FIELDS } from "../../constants/student.const.ts";
 import CreateForm from "../../components/CreateForm/CreateForm.tsx";
+import { formatFormData } from "../../utilities/Format-data.util.ts";
 import { classSelector } from "../../redux/selectors/class.selector.ts";
 import { studentSelector } from "../../redux/selectors/student.selector.ts";
 
@@ -35,32 +35,24 @@ const CreatePage = () => {
   const students = useSelector(studentSelector);
 
   const handleAddStudent = async (newStudent: ICreateStudentDto) => {
-    try {
-      formatData<ICreateStudentDto>(newStudent, STUDENT_FIELDS);
+    formatFormData<ICreateStudentDto>(newStudent, STUDENT_FIELDS);
 
-      await studentsService.createStudent(newStudent);
+    await studentsService.createStudent(newStudent);
 
-      if (students.length > 0) {
-        const student: IStudentInfo = { ...newStudent, classId: null };
-        dispatch(addStudent(student));
-      }
-    } catch (error) {
-      throw error;
+    if (students.length > 0) {
+      const student: IStudentInfo = { ...newStudent, classId: null };
+      dispatch(addStudent(student));
     }
   };
 
   const handleAddClass = async (newClassroom: ICreateClassDto) => {
-    try {
-      formatData<ICreateClassDto>(newClassroom, CLASS_FIELDS);
+    formatFormData<ICreateClassDto>(newClassroom, CLASS_FIELDS);
 
-      await classesService.createClass(newClassroom);
+    await classesService.createClass(newClassroom);
 
-      if (classes.length > 0) {
-        const classroom: IClassesInfo = { ...newClassroom, students: [] };
-        dispatch(addClass(classroom));
-      }
-    } catch (error) {
-      throw error;
+    if (classes.length > 0) {
+      const classroom: IClassesInfo = { ...newClassroom, students: [] };
+      dispatch(addClass(classroom));
     }
   };
 
@@ -68,12 +60,12 @@ const CreatePage = () => {
     <Box sx={styles.main}>
       <CreateForm<ICreateClassDto>
         fieldsList={CLASS_FIELDS}
-        title={CREATE_CLASS_HEADER}
         onSubmit={handleAddClass}
+        title={CREATE_CLASS_HEADER}
       />
       <CreateForm<ICreateStudentDto>
-        fieldsList={STUDENT_FIELDS}
         title={ADD_STUDENT_HEADER}
+        fieldsList={STUDENT_FIELDS}
         onSubmit={handleAddStudent}
       />
     </Box>

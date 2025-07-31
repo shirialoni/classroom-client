@@ -90,7 +90,6 @@ export const STUDENT_FIELDS: IField<ICreateStudentDto>[] = [
     onKeyDown: (e) =>
       !isNumberString(e.key) && e.key !== "Backspace" && e.preventDefault(),
   },
-
   {
     key: "profession",
     label: "Profession",
