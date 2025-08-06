@@ -62,11 +62,7 @@ const ClassesPage = () => {
           onClose={() => setSelectedClassroom(null)}
           button={<DeleteIcon style={styles.button} />}
           onButtonClick={async (studentId) => {
-            await handleUnassignStudent(
-              "" + studentId,
-              selectedClassroom,
-              dispatch
-            );
+            await handleUnassignStudent(studentId, selectedClassroom, dispatch);
           }}
           dialogData={studentsDialogAdapter(selectedClassroom)}
         />

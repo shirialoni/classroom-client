@@ -19,7 +19,7 @@ interface IAssignDialogProps {
   button: JSX.Element;
   onClose: () => void;
   dialogData: IDialogData[];
-  onButtonClick: (id: number | string) => Promise<void>;
+  onButtonClick: (id: string) => Promise<void>;
 }
 
 const ClassroomDialog: FC<IAssignDialogProps> = ({

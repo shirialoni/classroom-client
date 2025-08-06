@@ -90,7 +90,7 @@ const StudentsTable = () => {
           avatar={<SchoolIcon />}
           header={DIALOG_HEADER.STUDENT_PAGE}
           onClose={() => setSelectedStudent(null)}
-          onButtonClick={async (classId: number | string) => {
+          onButtonClick={async (classId: string) => {
             setSelectedStudent(null);
             await handleAssignStudent(
               Number(classId),
@@ -98,7 +98,12 @@ const StudentsTable = () => {
               dispatch
             );
           }}
-          dialogData={availableClasses}
+          dialogData={availableClasses.map((curClass) => {
+            return {
+              id: String(curClass.id),
+              name: curClass.name,
+            };
+          })}
         />
       )}
     </>
