@@ -83,7 +83,7 @@ export const STUDENT_FIELDS: IField<ICreateStudentDto>[] = [
     registerOptions: {
       validate: {
         validNumber: (v) =>
-          (!v.toString().startsWith("0") && isNumberString(v)) ||
+          (!v.toString().startsWith("0") && isNumberString(v)) || !v ||
           errorMsgs.validNumber,
       },
     },
